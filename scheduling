@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            background: white;
+            padding: 20px;
+            border: 1px solid #aaa;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+
+            width: 350px;
+            display: none;
+            z-index: 1000;
+        }
+
+        .popup:target {
+            display: block;
+        }
+
+        .close {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            text-decoration: none;
+            color: red;
+            font-weight: bold;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .weekdays {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .day,
+        .time,
+        .weekday {
+            padding: 12px;
+            border: 1px solid #666;
+            background: #f2f2f2;
+            text-decoration: none;
+            color: black;
+            display: block;
+        }
+
+        .day:hover,
+        .time:hover,
+        .weekday:hover {
+            background: green;
+            color: white;
+        }
+
+        .times {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <a href="#calendar">Schedule Available Gym Time</a>
+
+    
+    <div id="calendar" class="popup">
+
+        <a href="#" class="close">✖</a>
+        <h3>Select Weekday</h3>
+
+        <div class="weekdays">
+            <a class="weekday" href="#days">Monday</a>
+            <a class="weekday" href="#days">Tuesday</a>
+            <a class="weekday" href="#days">Wednesday</a>
+            <a class="weekday" href="#days">Thursday</a>
+            <a class="weekday" href="#days">Friday</a>
+            <a class="weekday" href="#days">Saturday</a>
+            <a class="weekday" href="#days">Sunday</a>
+        </div>
+
+    </div>
+
+
+    <div id="days" class="popup">
+
+        <a href="#" class="close">✖</a>
+        <h3>Select Day</h3>
+
+        <div class="grid">
+
+            <a class="day" href="#time">1</a>
+            <a class="day" href="#time">2</a>
+            <a class="day" href="#time">3</a>
+            <a class="day" href="#time">4</a>
+            <a class="day" href="#time">5</a>
+
+            <a class="day" href="#time">6</a>
+            <a class="day" href="#time">7</a>
+            <a class="day" href="#time">8</a>
+            <a class="day" href="#time">9</a>
+            <a class="day" href="#time">10</a>
+
+            <a class="day" href="#time">11</a>
+            <a class="day" href="#time">12</a>
+            <a class="day" href="#time">13</a>
+            <a class="day" href="#time">14</a>
+            <a class="day" href="#time">15</a>
+
+            <a class="day" href="#time">16</a>
+            <a class="day" href="#time">17</a>
+            <a class="day" href="#time">18</a>
+            <a class="day" href="#time">19</a>
+            <a class="day" href="#time">20</a>
+
+            <a class="day" href="#time">21</a>
+            <a class="day" href="#time">22</a>
+            <a class="day" href="#time">23</a>
+            <a class="day" href="#time">24</a>
+            <a class="day" href="#time">25</a>
+
+            <a class="day" href="#time">26</a>
+            <a class="day" href="#time">27</a>
+            <a class="day" href="#time">28</a>
+            <a class="day" href="#time">29</a>
+            <a class="day" href="#time">30</a>
+
+        </div>
+
+    </div>
+
+
+    <div id="time" class="popup">
+
+        <a href="#" class="close">✖</a>
+        <h3>Select Time</h3>
+
+        <div class="times">
+            <div class="time">6:00 AM</div>
+            <div class="time">8:00 AM</div>
+            <div class="time">10:00 AM</div>
+            <div class="time">12:00 PM</div>
+            <div class="time">2:00 PM</div>
+            <div class="time">4:00 PM</div>
+            <div class="time">6:00 PM</div>
+            <div class="time">8:00 PM</div>
+            <div class="time">10:00 PM</div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
