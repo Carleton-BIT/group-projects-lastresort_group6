@@ -2,7 +2,7 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $email=htmlspecialchars($_POST["email"]);
   $password=htmlspecialchars($_POST["password"]);
-  $hashedPass=password_hash($password, PASSWORD_DEFAULT)
+  $hashedPass=password_hash($password, PASSWORD_DEFAULT);
 
   $conn = new mysqli("localhost", "root", "LastResort6?","AccInfo");
 
