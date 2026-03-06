@@ -1,0 +1,225 @@
+<html>
+<head>
+
+<style>
+
+body {
+    margin: 0;
+}
+
+
+.header-images{
+    display:flex;
+    width:100%;
+    height:220px;
+    border:4px solid darkred;
+    background-color:black;
+}
+
+
+.header-images img{
+    flex:1;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+}
+
+/* RED NAVIGATION AREA */
+.red-box {
+    background-color: red;
+    border: 3px solid darkred;
+    padding: 25px;
+    width: 100%;
+    height: 200px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+label, select {
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* INFO BOX */
+.info-box {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 140px;
+    height: 100px;
+    background-color: white;
+    border: 2px solid black;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* SPONSORS BUTTON */
+.sponsor-box {
+    position: absolute;
+    right: 180px;
+    top: 20px;
+    width: 120px;
+    height: 100px;
+    background-color: darkred;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* WOMEN HOURS BUTTON */
+.women-box {
+    position: absolute;
+    right: 320px;
+    top: 20px;
+    width: 140px;
+    height: 100px;
+    background-color: darkred;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.sponsor-box a,
+.women-box a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* to fade pics */
+.gym-slideshow{
+    width:100%;
+    height:400px;           
+    position:relative;
+    overflow:hidden;
+}
+
+.gym-slideshow img{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:0;
+    animation: fadeSlide 12s infinite;
+}
+
+/* fade timing */
+.gym-slideshow img:nth-child(1){ animation-delay: 0s; }
+.gym-slideshow img:nth-child(2){ animation-delay: 4s; }
+.gym-slideshow img:nth-child(3){ animation-delay: 8s; }
+
+/* Fade  */
+@keyframes fadeSlide{
+    0%   { opacity:0; }
+    10%  { opacity:1; }
+    30%  { opacity:1; }
+    40%  { opacity:0; }
+    100% { opacity:0; }
+}
+
+</style>
+</head>
+
+<body>
+
+
+<div class="header-images">
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTwfEzZ63TFZCYGdPA7cT1Jt2KiM7ZvQ7l0A&s">
+
+<img src="https://media.istockphoto.com/id/2027278927/photo/young-athletic-woman-exercising-with-barbell-during-sports-training-in-a-gym.jpg?s=612x612&w=0&k=20&c=ifFL7Mqc8NwTj25PAx4ONy1OOQZvc1S_kVOofsbLgFw=">
+
+<img src="https://images.ctfassets.net/8urtyqugdt2l/67ll4VrY53hDXLti1zIqd/90113e96e96e0177abc0897564dd9bdb/sled-push-desktop.jpg">
+
+<img src="https://i0.wp.com/www.muscleandfitness.com/wp-content/uploads/2018/03/1109-lifting-bench-press-spotter.jpg?quality=86&strip=all">
+
+<img src="https://simplifaster.com/wp-content/uploads/2025/06/Med-Ball-Squat.jpg">
+
+</div>
+
+<div class="red-box">
+
+<label for="AM Times">Morning Times:</label>
+<select id="AM Times">
+<option>--Please select a morning time slot--</option>
+<option>06:00AM</option>
+<option>06:30AM</option>
+<option>07:00AM</option>
+<option>07:30AM</option>
+<option>08:00AM</option>
+<option>08:30AM</option>
+<option>09:00AM</option>
+<option>09:30AM</option>
+<option>10:00AM</option>
+<option>10:30AM</option>
+<option>11:00AM</option>
+<option>11:30AM</option>
+<option>12:00PM</option>
+</select>
+
+<label for="PM Times">Afternoon Times:</label>
+<select id="PM Times">
+<option>--Please select an afternoon time slot--</option>
+<option>12:30PM</option>
+<option>01:00PM</option>
+<option>01:30PM</option>
+<option>02:00PM</option>
+<option>02:30PM</option>
+<option>03:00PM</option>
+<option>03:30PM</option>
+<option>04:00PM</option>
+<option>04:30PM</option>
+<option>05:00PM</option>
+<option>05:30PM</option>
+<option>06:00PM</option>
+<option>06:30PM</option>
+<option>07:00PM</option>
+<option>07:30PM</option>
+<option>08:00PM</option>
+<option>08:30PM</option>
+<option>09:00PM</option>
+<option>09:30PM</option>
+</select>
+
+<!-- WOMEN HOURS BUTTON -->
+<div class="women-box">
+<a href="womenhours.html">Women Only Hours</a>
+</div>
+
+<!-- SPONSORS BUTTON -->
+<div class="sponsor-box">
+<a href="sponsors.html">Sponsors</a>
+</div>
+
+
+<div class="info-box">
+
+<label for="info">Info:</label>
+
+<select id="info" onchange="location = this.value;">
+<option value="">Select Info</option>
+<option value="hours.html">Gym Hours</option>
+<option value="rules.html">Gym Rules</option>
+<option value="contact.html">Contact</option>
+</select>
+
+</div>
+
+</div>
+
+<!-- picture slideshow -->
+<div class="gym-slideshow">
+    <img src="https://carleton.ca/hr/wp-content/uploads/sites/16/fitness-centre-e1420663592197.jpg" alt="Fitness Centre">
+    <img src="https://students.carleton.ca/wp-content/uploads/2022/05/Web-post-size-600-x-400-25.png" alt="Carleton Students Gym">
+    <img src="https://static.where-e.com/Canada/Carleton-University-Raven-S-Nest_3bfc6460e95524486ed0acbcf3e4bc2a.jpg" alt="Ravens Nest">
+</div>
+
+</body>
+</html>
