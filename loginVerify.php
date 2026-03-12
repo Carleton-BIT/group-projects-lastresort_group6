@@ -17,10 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $check->bind_result($dbPass);
         $check->fetch();
         if (password_verify($password,$dbPass)){
-            /*session_start();
-            $_SESSION["email"] = $email;
-            header("Location: homepage.html");
-            die(); */
             echo "Correct Password";
         }
         else {
