@@ -3,7 +3,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email=htmlspecialchars($_POST["email"]);
     $password=htmlspecialchars($_POST["password"]);
 
-    $conn = new mysqli("localhost", "root", "LastResort6?","AccInfo");
+    $conn = new mysqli("localhost", "root", "LR6?","accinfo");
 
     if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
