@@ -1,0 +1,201 @@
+<html>
+<head>
+
+<style>
+
+body {
+    margin: 0;
+}
+
+.header-images{
+    display:flex;
+    width:100%;
+    height:220px;
+    border:4px solid darkred;
+    background-color:black;
+}
+
+.header-images img{
+    flex:1;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+}
+
+/* RED NAVIGATION AREA */
+.red-box {
+    background-color: red;
+    border: 3px solid darkred;
+    padding: 25px;
+    width: 100%;
+    height: 200px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+label, select {
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* INFO BOX */
+.info-box {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 140px;
+    height: 100px;
+    background-color: white;
+    border: 2px solid black;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* SPONSORS BUTTON */
+.sponsor-box {
+    position: absolute;
+    right: 180px;
+    top: 20px;
+    width: 120px;
+    height: 100px;
+    background-color: darkred;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* WOMEN HOURS BUTTON */
+.women-box {
+    position: absolute;
+    right: 320px;
+    top: 20px;
+    width: 140px;
+    height: 100px;
+    background-color: darkred;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* NEW SELECT TIME BUTTON */
+.select-box {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    width: 140px;
+    height: 100px;
+    background-color: darkred;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.select-box a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.sponsor-box a,
+.women-box a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* slideshow */
+.gym-slideshow{
+    width:100%;
+    height:400px;           
+    position:relative;
+    overflow:hidden;
+}
+
+.gym-slideshow img{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:0;
+    animation: fadeSlide 12s infinite;
+}
+
+/* fade timing */
+.gym-slideshow img:nth-child(1){ animation-delay: 0s; }
+.gym-slideshow img:nth-child(2){ animation-delay: 4s; }
+.gym-slideshow img:nth-child(3){ animation-delay: 8s; }
+
+/* Fade  */
+@keyframes fadeSlide{
+    0%   { opacity:0; }
+    10%  { opacity:1; }
+    30%  { opacity:1; }
+    40%  { opacity:0; }
+    100% { opacity:0; }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header-images">
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTwfEzZ63TFZCYGdPA7cT1Jt2KiM7ZvQ7l0A&s">
+<img src="https://media.istockphoto.com/id/2027278927/photo/young-athletic-woman-exercising-with-barbell-during-sports-training-in-a-gym.jpg?s=612x612&w=0&k=20&c=ifFL7Mqc8NwTj25PAx4ONy1OOQZvc1S_kVOofsbLgFw=">
+<img src="https://images.ctfassets.net/8urtyqugdt2l/67ll4VrY53hDXLti1zIqd/90113e96e96e0177abc0897564dd9bdb/sled-push-desktop.jpg">
+<img src="https://i0.wp.com/www.muscleandfitness.com/wp-content/uploads/2018/03/1109-lifting-bench-press-spotter.jpg?quality=86&strip=all">
+<img src="https://simplifaster.com/wp-content/uploads/2025/06/Med-Ball-Squat.jpg">
+
+</div>
+
+<div class="red-box">
+
+<!-- CALANDAR KENTO  -->
+<div class="select-box">
+<a href="select.html">Select Time</a>
+</div>
+
+<!-- WOMEN HOURS BUTTON DONE** -->
+<div class="women-box">
+<a href="WOMENHOURS.html">Women Only Hours</a>
+</div>
+
+<!-- SPONSORS BUTTON DONE -->
+<div class="sponsor-box">
+<a href="sponsors.html">Sponsors</a>
+</div>
+
+<div class="info-box">
+
+<label for="info">Info:</label>
+
+<select id="info" onchange="location = this.value;">
+<option value="">Select Info</option>
+<option value="hours.html">Gym Hours</option> <!-- DONE-->
+<option value="rules.html">Gym Rules</option> <!-- done**-->
+<option value="contact.html">Contact</option> <!--DONE-->
+</select>
+
+</div>
+
+</div>
+
+<!-- picture slideshow -->
+<div class="gym-slideshow">
+<img src="https://carleton.ca/hr/wp-content/uploads/sites/16/fitness-centre-e1420663592197.jpg">
+<img src="https://students.carleton.ca/wp-content/uploads/2022/05/Web-post-size-600-x-400-25.png">
+<img src="https://static.where-e.com/Canada/Carleton-University-Raven-S-Nest_3bfc6460e95524486ed0acbcf3e4bc2a.jpg">
+</div>
+
+</body>
+</html>
