@@ -153,8 +153,10 @@
 
     <div id="time" class="popup">
 
-        <a href="#" class="close">✖</a>
-        <h3>Select Time</h3>
+    <a href="#" class="close">✖</a>
+    <h3>Select Time</h3>
+
+    <form action="submit.php" method="POST">
 
         <div class="times">
             <div class="time">6:00 AM</div>
@@ -168,7 +170,19 @@
             <div class="time">10:00 PM</div>
         </div>
 
-    </div>
+        <br>
+
+        <!-- REQUIRED datetime input -->
+        <label>Select Date & Time:</label><br>
+        <input type="datetime-local" name="appointment" required>
+
+        <br><br>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+</div>
 
 </body>
 
