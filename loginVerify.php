@@ -17,10 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $check->bind_result($dbPass);
         $check->fetch();
         if (password_verify($password,$dbPass)){
-            echo "Correct Password";
+            header("Location: check.html");
         }
         else {
-            echo "Incorrect Password";
+            header("Location: login.html");
         }
     }
     else{

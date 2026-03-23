@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  $sql = $conn->prepare("INSERT INTO info (email, pass) VALUES (?,?)");
  $sql -> bind_param("ss",$email,$hashedPass);
  if ($sql->execute()) {
-    header("Location: loginVerify.php");
+    header("Location: login.html");
  }
  mysqli_close($conn);
 }
