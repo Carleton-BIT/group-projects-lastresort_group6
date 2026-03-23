@@ -1,18 +1,72 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+<style>/*css*/
+/* background style*/
+body{
+
+    background: red;
+    font-family: 'Times New Roman', Times, serif;
+} 
+/* For occupancy info*/
+.box{
+    background: white;
+    padding: 20px;
+    margin-top: 20px;
+    width: 250px;
+    border-radius: 8px;
+    display: none;/* hidden by default*/
+    font-family: 'Times New Roman', Times, serif;
+}
+/* Button Style*/
+button{
+    background: white;
+    padding: 20px 20px;
+    margin-top: 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+</style>
+</head>
+
 <body>
 
-<p id="demo"></p>
+<h1 style="color:black;">Menu</h1>
 
-<script>
+<!-- If click occupancy button -->
+<button onclick="Occupancy()" >Check Occupancy</button>
 
+<!-- display info -->
+<div class="box" id="occupancyBox">
+    <p id="curr"></p>
+    <p id="remain"></p>
+</div>
 
+<script>//JavaScript
+//set variables -> change when merging later on 
+let currOccupancy =90;
+let maxCapacity = 120;
 
+// Occupancy Function -> what to display and where
+function Occupancy(){
+    let box = document.getElementById("occupancyBox");//box element
+    if (box.style.display == "none" || box.style.display ==""){
+        
+        
+        box.style.display = "block";//make visible
 
+        //display varibles
+        document.getElementById("curr").textContent = "Current Occupancy: " + currOccupancy;
+        document.getElementById("remain").textContent = "Remaining Space: " + (maxCapacity - currOccupancy) ;
+    } else{
+        //if bpx is visible -> hide
+        box.style.display = "none";
+    }
 
-let number = 90;
-
-document.getElementById("demo").textContent = "Current Occupancy: " + number;
+}
 
 </script>
 </body>    
