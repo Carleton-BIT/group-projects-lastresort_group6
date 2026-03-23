@@ -3,7 +3,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email=htmlspecialchars($_POST["email"]);
     $password=htmlspecialchars($_POST["password"]);
 
-    $conn = new mysqli("localhost", "root", "LastResort6?","AccInfo");
+    $conn = new mysqli("localhost", "root", "LR6?","accinfo");
 
     if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -17,14 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $check->bind_result($dbPass);
         $check->fetch();
         if (password_verify($password,$dbPass)){
-            /*session_start();
-            $_SESSION["email"] = $email;
-            header("Location: homepage.html");
-            die(); */
-            echo "Correct Password";
+            header("Location: check.html");
         }
         else {
-            echo "Incorrect Password";
+            header("Location: login.html");
         }
     }
     else{
