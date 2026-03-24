@@ -1,19 +1,72 @@
 <div id="time" class="popup">
 
+    <style>
+        .popup {
+            background-color: #ffe5e5; /* light red background */
+            border: 2px solid #cc0000;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            margin: auto;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .popup h3 {
+            color: #cc0000;
+        }
+
+        .popup label {
+            color: #990000;
+            font-weight: bold;
+        }
+
+        .popup input[type="datetime-local"] {
+            border: 2px solid #cc0000;
+            border-radius: 5px;
+            padding: 5px;
+            width: 80%;
+        }
+
+        .popup button {
+            background-color: #cc0000;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .popup button:hover {
+            background-color: #990000;
+        }
+
+        .close {
+            float: right;
+            text-decoration: none;
+            font-size: 18px;
+            color: #cc0000;
+            font-weight: bold;
+        }
+
+        .close:hover {
+            color: #990000;
+        }
+    </style>
+
     <a href="#" class="close">✖</a>
     <h3>Select Time</h3>
 
     <form action="reservation.php" method="POST">
         <br>
 
-        <!-- REQUIRED datetime input -->
         <label>Select Date & Time:</label><br>
         <input type="datetime-local" name="appointment" required>
 
         <br><br>
 
         <button type="submit">Submit</button>
-
     </form>
 
 </div>
