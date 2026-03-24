@@ -41,6 +41,54 @@ label, select {
     margin-bottom: 10px;
 }
 
+
+.account-box {
+    position: absolute;
+    right: 640px;
+    top: 20px;
+    width: 140px;
+    height: 100px;
+    background-color: darkred;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.occupancy-box {
+    position: absolute;
+    right: 480px;
+    top: 20px;
+    width: 140px;
+    height: 100px;
+    background-color: darkred;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.occupancy-pop {
+    display: none;
+    position: absolute;
+    right: 480px;
+    top: 120px;
+    width: 140px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 6px;
+    padding: 8px;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 13px;
+    z-index: 100;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    cursor: pointer;        /* shows hand cursor on hover */
+    user-select: none;  
+}
+
+
 /* INFO BOX */
 .info-box {
     position: absolute;
@@ -82,7 +130,8 @@ label, select {
     justify-content: center;
     text-align: center;
 }
-
+.account-box a,
+.occupancy_box a,
 .sponsor-box a,
 .women-box a {
     color: white;
@@ -188,6 +237,11 @@ label, select {
 <option>09:30PM</option>
 </select>
 
+
+<!-- AccountBUTTON -->
+<div class="account-box">
+<a href="AccountDetails.html">Account Details</a>
+</div>
 <!-- WOMEN HOURS BUTTON -->
 <div class="women-box">
 <a href="womenhours.html">Women Only Hours</a>
@@ -197,6 +251,20 @@ label, select {
 <div class="sponsor-box">
 <a href="sponsors.html">Sponsors</a>
 </div>
+
+
+
+    <div class="occupancy-box" onclick="Occupancy()">
+        <span style="color:white; font-weight:bold; font-size:16px;">Check Gym Occupancy</span>
+    </div>
+
+
+    <div class="occupancy-pop" id="occupancyBox">
+        <p id="curr" style="margin:4px 0;"></p>
+        <p id="remain" style="margin:4px 0;"></p>
+    </div>
+
+
 
 
 <div class="info-box">
@@ -220,6 +288,31 @@ label, select {
     <img src="https://students.carleton.ca/wp-content/uploads/2022/05/Web-post-size-600-x-400-25.png" alt="Carleton Students Gym">
     <img src="https://static.where-e.com/Canada/Carleton-University-Raven-S-Nest_3bfc6460e95524486ed0acbcf3e4bc2a.jpg" alt="Ravens Nest">
 </div>
+
+<script>//JavaScript
+//set variables -> change when merging later on 
+let currOccupancy =90;
+let maxCapacity = 120;
+
+// Occupancy Function -> what to display and where
+function Occupancy(){
+    let box = document.getElementById("occupancyBox");//box element
+    if (box.style.display == "none" || box.style.display ==""){
+        
+        
+        box.style.display = "block";//make visible
+
+        //display varibles
+        document.getElementById("curr").textContent = "Current Occupancy: " + currOccupancy;
+        document.getElementById("remain").textContent = "Remaining Space: " + (maxCapacity - currOccupancy) ;
+    } else{
+        //if bpx is visible -> hide
+        box.style.display = "none";
+    }
+
+}
+
+</script>
 
 </body>
 </html>

@@ -37,30 +37,35 @@ button{
 <h1 style="color:black;">Menu</h1>
 
 <!-- If click occupancy button -->
-<button onclick="Occupancy()" >Check Occupancy</button>
+<button onclick="accountDetails()" >Account Details</button>
 
 <!-- display info -->
-<div class="box" id="occupancyBox">
-    <p id="curr"></p>
-    <p id="remain"></p>
+<div class="box" id="accountBox">
+    <p id="name"></p>
+    <p id="email"></p>
+    <p id="scheduled"></p>
+    
 </div>
 
 <script>//JavaScript
 //set variables -> change when merging later on 
-let currOccupancy =90;
-let maxCapacity = 120;
+let name ="Joe Smith";
+let emailAddress= "joesmith@email.ca";
+let upcoming= "March 10, 11:30-12:30";
+
 
 // Occupancy Function -> what to display and where
-function Occupancy(){
-    let box = document.getElementById("occupancyBox");//box element
+function accountDetails(){
+    let box = document.getElementById("accountBox");//box element
     if (box.style.display == "none" || box.style.display ==""){
         
         
         box.style.display = "block";//make visible
 
         //display varibles
-        document.getElementById("curr").textContent = "Current Occupancy: " + currOccupancy;
-        document.getElementById("remain").textContent = "Remaining Space: " + (maxCapacity - currOccupancy) ;
+        document.getElementById("name").textContent = "Name: " + name;
+        document.getElementById("email").textContent = "Email Address: " + emailAddress;
+        document.getElementById("scheduled").textContent = "Upcoming Times: " + upcoming;
     } else{
         //if bpx is visible -> hide
         box.style.display = "none";
