@@ -178,5 +178,4 @@
             window.location.href = "check.html";
         });
     </script>
-
 </div>
