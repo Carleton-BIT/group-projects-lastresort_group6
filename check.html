@@ -23,6 +23,54 @@ body {
     display:block;
 }
 
+.account-box {
+    position: absolute;
+    right: 640px;
+    top: 20px;
+    width: 140px;
+    height: 100px;
+    background-color: darkred;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.occupancy-box {
+    position: absolute;
+    right: 480px;
+    top: 20px;
+    width: 140px;
+    height: 100px;
+    background-color: darkred;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+/* This*/
+.occupancy-pop {
+    display: none;
+    position: absolute;
+    right: 480px;
+    top: 120px;
+    width: 140px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 6px;
+    padding: 8px;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 13px;
+    z-index: 100;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    cursor: pointer;        
+    user-select: none;  
+}
+
+
 /* RED NAVIGATION AREA */
 .red-box {
     background-color: red;
@@ -101,7 +149,8 @@ label, select {
     font-weight: bold;
     font-size: 16px;
 }
-
+.account-box a,
+.occupancy-box a,
 .sponsor-box a,
 .women-box a {
     color: white;
@@ -149,8 +198,12 @@ label, select {
 <body>
 
 <div class="header-images">
+<<<<<<< Updated upstream
+<!-- replace carleton logo (first one) w our logo-->
+=======
 
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTwfEzZ63TFZCYGdPA7cT1Jt2KiM7ZvQ7l0A&s">
+>>>>>>> Stashed changes
+<img src="LastResortLogo.jpg">
 <img src="https://media.istockphoto.com/id/2027278927/photo/young-athletic-woman-exercising-with-barbell-during-sports-training-in-a-gym.jpg?s=612x612&w=0&k=20&c=ifFL7Mqc8NwTj25PAx4ONy1OOQZvc1S_kVOofsbLgFw=">
 <img src="https://images.ctfassets.net/8urtyqugdt2l/67ll4VrY53hDXLti1zIqd/90113e96e96e0177abc0897564dd9bdb/sled-push-desktop.jpg">
 <img src="https://i0.wp.com/www.muscleandfitness.com/wp-content/uploads/2018/03/1109-lifting-bench-press-spotter.jpg?quality=86&strip=all">
@@ -162,7 +215,7 @@ label, select {
 
 <!-- CALANDAR KENTO  -->
 <div class="select-box">
-<a href="select.html">Select Time</a>
+<a href="scheduling.html">Select Time</a>
 </div>
 
 <!-- WOMEN HOURS BUTTON DONE** -->
@@ -174,6 +227,27 @@ label, select {
 <div class="sponsor-box">
 <a href="sponsors.html">Sponsors</a>
 </div>
+
+<!-- AccountBUTTON -->
+<div class="account-box">
+<a href="AccountDetails.html">Account Details</a>
+</div>
+
+
+
+
+
+    <div class="occupancy-box" onclick="Occupancy()">
+        <span style="color:white; font-weight:bold; font-size:16px;">Check Gym Occupancy</span>
+    </div>
+
+
+    <div class="occupancy-pop" id="occupancyBox">
+        <p id="curr" style="margin:4px 0;"></p>
+        <p id="remain" style="margin:4px 0;"></p>
+    </div>
+
+
 
 <div class="info-box">
 
@@ -196,6 +270,31 @@ label, select {
 <img src="https://students.carleton.ca/wp-content/uploads/2022/05/Web-post-size-600-x-400-25.png">
 <img src="https://static.where-e.com/Canada/Carleton-University-Raven-S-Nest_3bfc6460e95524486ed0acbcf3e4bc2a.jpg">
 </div>
+<script>//JavaScript
+//set variables -> change when merging later on 
+let currOccupancy =90;
+let maxCapacity = 120;
+
+// Occupancy Function -> what to display and where
+function Occupancy(){
+    let box = document.getElementById("occupancyBox");//box element
+    if (box.style.display == "none" || box.style.display ==""){
+        
+        
+        box.style.display = "block";//make visible
+
+        //display varibles
+        document.getElementById("curr").textContent = "Current Occupancy: " + currOccupancy;
+        document.getElementById("remain").textContent = "Remaining Space: " + (maxCapacity - currOccupancy) ;
+    } else{
+        //if bpx is visible -> hide
+        box.style.display = "none";
+    }
+
+}
+
+</script>
+
 
 </body>
 </html>
