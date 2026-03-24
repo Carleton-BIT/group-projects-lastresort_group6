@@ -3,29 +3,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email=htmlspecialchars($_POST["email"]);
     $password=htmlspecialchars($_POST["password"]);
 
-    $conn = new mysqli("localhost", "root", "LastResort6?","AccInfo");
+    $conn = new mysqli("localhost", "root", "LR6?","accinfo");
 
     if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
     }
 
-    if ($conn->query($sql) === TRUE) {
-        $check= "SELECT pass FROM accinfo WHERE email = $email";
-        $check->store_result();
-        if ($check->num_rows>0){
-            $check->bind_result($dbPass);
-            $check->fetch();
-            if (password_verify($password,$dbPass)){
-                echo "Login Successful";
-                exit();
-            }
-            else (){
-                echo "Incorrect password";
-            }
+    $check= $conn->prepare("SELECT pass FROM info WHERE email=?");
+    $check-> bind_param("s",$email);
+    $check->execute();
+    $check->store_result();
+    if ($check->num_rows()>0) {
+        $check->bind_result($dbPass);
+        $check->fetch();
+        if (password_verify($password,$dbPass)){
+            session_start();
+            $_SESSION['email']=$email;
+            header("Location: check.html");
+        }
+        else {
+            header("Location: login.html");
+            echo "Invalid password or email"
         }
     }
     else{
         echo "Email not found";
     }
+    $check->close();
+    $conn->close();
 }
 ?>

@@ -2,19 +2,17 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $email=htmlspecialchars($_POST["email"]);
   $password=htmlspecialchars($_POST["password"]);
-  $hashedPass=password_hash($password, PASSWORD_DEFAULT)
+  $hashedPass=password_hash($password, PASSWORD_DEFAULT);
 
-  $conn = new mysqli("localhost", "root", "LastResort6?","AccInfo");
+ $conn = new mysqli("localhost", "root", "LR6?","accinfo");
+ echo "email: $email password: $password ";
 
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
-
-  $sql = "INSERT INTO AccInfo (email, pass) VALUES ($email, $pass)";
-
-  if ($conn->query($sql) === TRUE) {
-    echo "Account Created";
-  }
+ $sql = $conn->prepare("INSERT INTO info (email, pass) VALUES (?,?)");
+ $sql -> bind_param("ss",$email,$hashedPass);
+ if ($sql->execute()) {
+    header("Location: login.html");
+ }
+ mysqli_close($conn);
 }
 ?>
 

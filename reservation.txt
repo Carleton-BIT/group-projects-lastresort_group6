@@ -1,0 +1,8 @@
+create database if not exists reservation;
+use reservation;
+create table timeslots(
+email varchar(255) not NULL,
+start date not NULL,
+end date not NULL,
+UNIQUE (email)
+);
