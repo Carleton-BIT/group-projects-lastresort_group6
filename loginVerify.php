@@ -17,10 +17,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $check->bind_result($dbPass);
         $check->fetch();
         if (password_verify($password,$dbPass)){
+            session_start();
+            $_SESSION['email']=$email;
             header("Location: check.html");
         }
         else {
             header("Location: login.html");
+            echo "Invalid password or email"
         }
     }
     else{
