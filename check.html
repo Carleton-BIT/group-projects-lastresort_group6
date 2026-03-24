@@ -36,6 +36,26 @@ body {
     justify-content: center;
     text-align: center;
 }
+/* This*/
+.account-pop {
+    display: none;
+    position: absolute;
+    right: 640px;
+    top: 120px;
+    width: 140px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 6px;
+    padding: 8px;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 13px;
+    z-index: 100;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    cursor: pointer;        
+    user-select: none;  
+}
+
 
 .occupancy-box {
     position: absolute;
@@ -198,11 +218,11 @@ label, select {
 <body>
 
 <div class="header-images">
-<<<<<<< Updated upstream
-<!-- replace carleton logo (first one) w our logo-->
-=======
 
->>>>>>> Stashed changes
+<!-- replace carleton logo (first one) w our logo-->
+
+
+
 <img src="LastResortLogo.jpg">
 <img src="https://media.istockphoto.com/id/2027278927/photo/young-athletic-woman-exercising-with-barbell-during-sports-training-in-a-gym.jpg?s=612x612&w=0&k=20&c=ifFL7Mqc8NwTj25PAx4ONy1OOQZvc1S_kVOofsbLgFw=">
 <img src="https://images.ctfassets.net/8urtyqugdt2l/67ll4VrY53hDXLti1zIqd/90113e96e96e0177abc0897564dd9bdb/sled-push-desktop.jpg">
@@ -229,11 +249,18 @@ label, select {
 </div>
 
 <!-- AccountBUTTON -->
-<div class="account-box">
-<a href="AccountDetails.html">Account Details</a>
+
+<div class="account-box" onclick="Account()">
+        <span style="color:white; font-weight:bold; font-size:16px;">Account Details</span>
+    </div>
+
+
+    <div class="account-pop" id="accountBox">
+    <p id="name"></p>
+    <p id="email"></p>
+    <p id="scheduled"></p>
+    
 </div>
-
-
 
 
 
@@ -270,7 +297,41 @@ label, select {
 <img src="https://students.carleton.ca/wp-content/uploads/2022/05/Web-post-size-600-x-400-25.png">
 <img src="https://static.where-e.com/Canada/Carleton-University-Raven-S-Nest_3bfc6460e95524486ed0acbcf3e4bc2a.jpg">
 </div>
+
+
+
+
+
+
+
 <script>//JavaScript
+//set variables -> change when merging later on 
+let name ="Joe Smith";
+let emailAddress= "joesmith@email.ca";
+let upcoming= "March 10, 11:30-12:30";
+
+
+// Occupancy Function -> what to display and where
+function Account(){
+    let box = document.getElementById("accountBox");//box element
+    if (box.style.display == "none" || box.style.display ==""){
+        
+        
+        box.style.display = "block";//make visible
+
+        //display varibles
+        document.getElementById("name").textContent = "Name: " + name;
+        document.getElementById("email").textContent = "Email Address: " + emailAddress;
+        document.getElementById("scheduled").textContent = "Upcoming Times: " + upcoming;
+    } else{
+        //if bpx is visible -> hide
+        box.style.display = "none";
+    }
+
+}
+</script>
+
+<script>
 //set variables -> change when merging later on 
 let currOccupancy =90;
 let maxCapacity = 120;
