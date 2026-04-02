@@ -53,7 +53,11 @@ body {
     z-index: 100;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     cursor: pointer;        
-    user-select: none;  
+    user-select: none; 
+
+   
+
+ 
 }
 
 
@@ -258,7 +262,10 @@ label, select {
     <div class="account-pop" id="accountBox">
     <p id="name"></p>
     <p id="email"></p>
-    <p id="scheduled"></p>
+    <p id="scheduled">
+    Upcoming Times: <span id="timeText"></span>
+    <button id="removeBtn" class="remove-btn" onclick="removeTime()">X</button>
+    </p>
     
 </div>
 
@@ -303,8 +310,6 @@ label, select {
 
 
 
-
-
 <script>//JavaScript
 //set variables -> change when merging later on 
 //let name ="Joe Smith";
@@ -314,21 +319,27 @@ let upcoming= "March 10, 11:30-12:30";
 
 // Occupancy Function -> what to display and where
 function Account(){
-    let box = document.getElementById("accountBox");//box element
+    let box = document.getElementById("accountBox");
+
     if (box.style.display == "none" || box.style.display ==""){
         
-        
-        box.style.display = "block";//make visible
+        box.style.display = "block";
 
-        //display varibles
-       // document.getElementById("name").textContent = "Name: " + name;
         document.getElementById("email").textContent = "Email Address: " + emailAddress;
-        document.getElementById("scheduled").textContent = "Upcoming Times: " + upcoming;
+
+       
+        document.getElementById("timeText").textContent = upcoming;
+
+        document.getElementById("removeBtn").style.display = "inline";
+
     } else{
-        //if bpx is visible -> hide
         box.style.display = "none";
     }
-
+}
+</script>
+<script>
+function removeTime(){
+    document.getElementById("scheduled").style.display = "none";
 }
 </script>
 
